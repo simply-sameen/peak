@@ -6,7 +6,7 @@
   <title>Peak — What if you knew ahead?</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -15,14 +15,14 @@
     }
 
     :root {
-      --bg:        #EDECE7;
-      --text:      #111111;
-      --muted:     #3a3a3a;
-      --subtle:    #666666;
-      --accent:    #1B6B52;
-      --btn-bg:    #152C20;
-      --btn-text:  #ffffff;
-      --border:    #C4C3BE;
+      --bg:        #f6f6f6;
+      --text:      #141414;
+      --muted:     #000000;
+      --subtle:    #c4cecc;
+      --accent:    #00674f;
+      --btn-bg:    #00674f;
+      --btn-text:  #f6f6f6;
+      --border:    #c4cecc;
     }
 
     html {
@@ -32,7 +32,7 @@
     body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: 'Inter', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -42,16 +42,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 28px 48px;
+      padding: 38px 48px;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 5px;
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: -0.01em;
+      gap: 4px;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 0.8;
       color: var(--text);
       text-decoration: none;
     }
@@ -61,22 +62,22 @@
       align-items: center;
       justify-content: center;
       color: var(--accent);
-      font-size: 16px;
-      line-height: 1;
-      transform: rotate(0deg);
+      width: 24px;
+      height: 24px;
     }
 
     /* ── HERO ─────────────────────────────── */
     .hero {
-      padding: 72px 56px 0;
+      padding: 200px 56px 0;
       max-width: 1280px;
       margin: 0 auto;
+      text-align: center;
     }
 
     .hero h1 {
-      font-size: clamp(58px, 8.5vw, 100px);
-      font-weight: 900;
-      line-height: 1.03;
+      font-size: 96px;
+      font-weight: 700;
+      line-height: 0.8;
       letter-spacing: -0.035em;
       color: var(--text);
     }
@@ -87,7 +88,7 @@
 
     /* ── BODY TEXT ────────────────────────── */
     .body-section {
-      padding: 80px 56px 96px;
+      padding: 200px 56px 0;
       max-width: 1280px;
       margin: 0 auto;
       display: flex;
@@ -95,93 +96,103 @@
     }
 
     .body-spacer {
-      flex: 0 0 42%;
+      flex: 0 0 27%;
     }
 
     .body-column {
       flex: 1;
+      max-width: 500px;
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      gap: 34px;
     }
 
     .body-column p {
-      font-size: 15.5px;
-      line-height: 1.72;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.4;
       color: var(--muted);
     }
 
     /* ── SECOND HEADING ───────────────────── */
     .second-section {
-      padding: 80px 56px 96px;
+      padding: 200px 56px 0;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
     }
 
     .second-section .lead {
-      font-size: 17px;
-      line-height: 1.65;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.4;
       color: var(--muted);
-      max-width: 520px;
-      margin: 0 auto 36px;
+      max-width: 630px;
     }
 
     .second-section h2 {
-      font-size: clamp(52px, 7.5vw, 92px);
-      font-weight: 900;
+      font-size: 96px;
+      font-weight: 700;
       letter-spacing: -0.035em;
-      line-height: 1.03;
+      line-height: 0.8;
       color: var(--text);
     }
 
     /* ── CTA / FORM SECTION ───────────────── */
     .cta-section {
-      padding: 72px 56px 100px;
+      padding: 200px 56px 0;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
     }
 
     .waitlist-badge {
-      display: inline-block;
-      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--accent);
       border-radius: 999px;
-      padding: 7px 22px;
-      font-size: 12.5px;
-      color: var(--subtle);
-      letter-spacing: 0.01em;
-      margin-bottom: 32px;
+      padding: 13px 20px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--accent);
     }
 
     .cta-section h2 {
-      font-size: clamp(38px, 5.5vw, 68px);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.08;
+      font-size: 64px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 0.8;
       color: var(--text);
-      margin-bottom: 44px;
     }
 
     .form-wrap {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .form-wrap input[type="email"] {
-      padding: 14px 24px;
+      padding: 13px 20px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: var(--bg);
-      font-size: 14.5px;
-      width: 280px;
+      background: #d9d9d9;
+      font-size: 12px;
+      font-weight: 300;
+      width: 298px;
       outline: none;
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      color: #444;
       transition: border-color 0.2s;
     }
 
     .form-wrap input[type="email"]::placeholder {
-      color: #AAAAAA;
+      color: #444;
     }
 
     .form-wrap input[type="email"]:focus {
@@ -189,16 +200,18 @@
     }
 
     .form-wrap button[type="submit"] {
-      padding: 14px 26px;
+      padding: 13px 20px;
       border-radius: 999px;
       background: var(--btn-bg);
       color: var(--btn-text);
       border: none;
-      font-size: 14.5px;
+      font-size: 12px;
       font-weight: 500;
+      line-height: 1.2;
       cursor: pointer;
-      font-family: 'Inter', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       white-space: nowrap;
+      box-shadow: 0 0 10px #94b5ad;
       transition: opacity 0.18s;
     }
 
@@ -206,18 +219,83 @@
       opacity: 0.82;
     }
 
+    .form-note {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--subtle);
+    }
+
+    /* ── FOOTER ──────────────────────────── */
+    footer {
+      padding: 200px 56px 100px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .footer-divider {
+      height: 1px;
+      background: var(--subtle);
+      margin-bottom: 19px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 21px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--subtle);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--subtle);
+      text-decoration: none;
+    }
+
+    .footer-brand svg {
+      width: 16px;
+      height: 16px;
+      color: var(--subtle);
+    }
+
     /* ── MOBILE ──────────────────────────── */
     @media (max-width: 768px) {
       nav {
-        padding: 22px 24px;
+        padding: 28px 24px;
       }
 
       .hero {
-        padding: 56px 24px 0;
+        padding: 120px 24px 0;
+      }
+
+      .hero h1 {
+        font-size: 64px;
+        letter-spacing: -0.03em;
       }
 
       .body-section {
-        padding: 56px 24px 72px;
+        padding: 120px 24px 0;
         flex-direction: column;
       }
 
@@ -226,34 +304,43 @@
       }
 
       .body-column {
-        gap: 18px;
-      }
-
-      .body-column p {
-        font-size: 15px;
+        max-width: 100%;
       }
 
       .second-section {
-        padding: 64px 24px 72px;
+        padding: 120px 24px 0;
+        gap: 40px;
       }
 
-      .second-section .lead {
-        font-size: 15px;
+      .second-section h2 {
+        font-size: 64px;
       }
 
       .cta-section {
-        padding: 56px 24px 80px;
+        padding: 120px 24px 0;
+        gap: 24px;
+      }
+
+      .cta-section h2 {
+        font-size: 48px;
+      }
+
+      .form-wrap {
+        flex-wrap: wrap;
       }
 
       .form-wrap input[type="email"] {
-        width: 185px;
-        font-size: 13.5px;
-        padding: 13px 18px;
+        width: 100%;
+        max-width: 320px;
       }
 
-      .form-wrap button[type="submit"] {
-        font-size: 13.5px;
-        padding: 13px 20px;
+      footer {
+        padding: 120px 24px 80px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 16px;
       }
     }
   </style>
@@ -264,11 +351,11 @@
   <nav>
     <a class="logo" href="#">
       <span class="logo-arrow">
-        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M1.5 11.5L11.5 1.5M11.5 1.5H3.5M11.5 1.5V9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 20L20 4M20 4H8M20 4V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </span>
-      <span>peak.</span>
+      <span>peek</span>
     </a>
   </nav>
 
@@ -299,7 +386,7 @@
 
   <!-- YOU'LL ALREADY KNOW -->
   <section class="second-section">
-    <p class="lead">So the next time you're deep in something that matters,<br class="br-desktop"> you won't find out you've hit the wall by hitting it.</p>
+    <p class="lead">So the next time you're deep in something that matters, you won't find out you've hit the wall by hitting it.</p>
     <h2>You'll already <span class="accent">know!</span></h2>
   </section>
 
@@ -307,7 +394,7 @@
   <section class="cta-section">
     <div class="waitlist-badge">Join the many founders and students on the waitlist</div>
 
-    <h2>Peek before you <span class="accent">peak.</span></h2>
+    <h2><span class="accent">Peek</span> before you peak.</h2>
 
     <form
       name="waitlist"
@@ -330,7 +417,27 @@
         <button type="submit">Get early access</button>
       </div>
     </form>
+
+    <p class="form-note">First founders get free access. Quick unsubscribe. No spam</p>
   </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-divider"></div>
+    <div class="footer-inner">
+      <nav class="footer-links">
+        <a href="#">Know More</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </nav>
+      <a class="footer-brand" href="#" target="_blank" rel="noopener">
+        <span>Tenztro</span>
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 13L13 3M13 3H7M13 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
 
 </body>
 </html>
