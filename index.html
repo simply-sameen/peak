@@ -282,7 +282,7 @@
     .footer-brand {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 21px;
       font-size: 14px;
       font-weight: 500;
       line-height: 1.4;
@@ -355,10 +355,6 @@
         padding: 120px 24px 60px;
       }
 
-      .footer-links {
-        flex-direction: column;
-        gap: 16px;
-      }
     }
   </style>
 </head>
@@ -440,19 +436,18 @@
       </nav>
       <a class="footer-brand" href="#" target="_blank" rel="noopener">
         <span>Tenztro</span>
-        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 13L13 3M13 3H7M13 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-label="X (Twitter)">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
       </a>
     </div>
   </footer>
 
-  <script src="config.js"></script>
   <script>
+    
     (function () {
-      var cfg = window.PEEK_CONFIG || {};
-      var SUPABASE_URL = cfg.supabaseUrl;
-      var ANON_KEY     = cfg.supabaseAnonKey;
+      var SUPABASE_URL = 'https://hhnsprekexcyqhravbxo.supabase.co';
+      var ANON_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhobnNwcmVrZXhjeXFocmF2YnhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4NjcxNjcsImV4cCI6MjA5NDQ0MzE2N30.eFZ7elDQVYDN_xOHIrPGzZvFGqy286wmg0Wh9vf2uUo';
 
       var form   = document.getElementById('waitlist-form');
       var status = document.getElementById('form-status');
@@ -465,10 +460,6 @@
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        if (!SUPABASE_URL || !ANON_KEY) {
-          setStatus('Configuration missing. Add config.js to run locally.', 'error');
-          return;
-        }
         var email = form.querySelector('input[type="email"]').value.trim();
         btn.disabled = true;
         btn.textContent = 'Sending…';
