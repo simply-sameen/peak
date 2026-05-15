@@ -42,13 +42,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 38px 48px;
+      max-width: 1085px;
+      margin: 0 auto;
+      padding: 85px 0 0;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 0;
       font-size: 24px;
       font-weight: 600;
       letter-spacing: -0.02em;
@@ -68,8 +70,8 @@
 
     /* ── HERO ─────────────────────────────── */
     .hero {
-      padding: 200px 56px 0;
-      max-width: 1280px;
+      padding: 200px 0 0;
+      max-width: 1085px;
       margin: 0 auto;
       text-align: center;
     }
@@ -78,7 +80,7 @@
       font-size: 96px;
       font-weight: 700;
       line-height: 0.8;
-      letter-spacing: -0.035em;
+      letter-spacing: 0;
       color: var(--text);
     }
 
@@ -88,20 +90,20 @@
 
     /* ── BODY TEXT ────────────────────────── */
     .body-section {
-      padding: 200px 56px 0;
-      max-width: 1280px;
+      padding: 200px 0 0;
+      max-width: 1085px;
       margin: 0 auto;
       display: flex;
       align-items: flex-start;
     }
 
     .body-spacer {
-      flex: 0 0 27%;
+      flex: 0 0 292.5px;
     }
 
     .body-column {
-      flex: 1;
-      max-width: 500px;
+      flex: none;
+      width: 500px;
       display: flex;
       flex-direction: column;
       gap: 34px;
@@ -116,7 +118,9 @@
 
     /* ── SECOND HEADING ───────────────────── */
     .second-section {
-      padding: 200px 56px 0;
+      padding: 200px 0 0;
+      max-width: 1085px;
+      margin: 0 auto;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -135,24 +139,27 @@
     .second-section h2 {
       font-size: 96px;
       font-weight: 700;
-      letter-spacing: -0.035em;
+      letter-spacing: 0;
       line-height: 0.8;
       color: var(--text);
     }
 
     /* ── CTA / FORM SECTION ───────────────── */
     .cta-section {
-      padding: 200px 56px 0;
+      padding: 200px 0 0;
+      max-width: 1085px;
+      margin: 0 auto;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 30px;
+      gap: 40px;
     }
 
     .waitlist-badge {
       display: inline-flex;
       align-items: center;
+      background: #c4cecc;
       border: 1px solid var(--accent);
       border-radius: 999px;
       padding: 13px 20px;
@@ -226,16 +233,26 @@
       color: var(--subtle);
     }
 
+    #form-status {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.4;
+      min-height: 20px;
+    }
+
+    #form-status.success { color: var(--accent); }
+    #form-status.error   { color: #b04040; }
+
     /* ── FOOTER ──────────────────────────── */
     footer {
-      padding: 200px 56px 100px;
-      max-width: 720px;
+      padding: 200px 0 85px;
+      max-width: 529px;
       margin: 0 auto;
     }
 
     .footer-divider {
       height: 1px;
-      background: var(--subtle);
+      background: #94b5ad;
       margin-bottom: 19px;
     }
 
@@ -282,7 +299,7 @@
     /* ── MOBILE ──────────────────────────── */
     @media (max-width: 768px) {
       nav {
-        padding: 28px 24px;
+        padding: 40px 24px 0;
       }
 
       .hero {
@@ -304,7 +321,7 @@
       }
 
       .body-column {
-        max-width: 100%;
+        width: 100%;
       }
 
       .second-section {
@@ -335,7 +352,7 @@
       }
 
       footer {
-        padding: 120px 24px 80px;
+        padding: 120px 24px 60px;
       }
 
       .footer-links {
@@ -390,22 +407,13 @@
     <h2>You'll already <span class="accent">know!</span></h2>
   </section>
 
-  <!-- CTA + NETLIFY FORM -->
+  <!-- CTA + WAITLIST FORM -->
   <section class="cta-section">
     <div class="waitlist-badge">Join the many founders and students on the waitlist</div>
 
     <h2><span class="accent">Peek</span> before you peak.</h2>
 
-    <form
-      name="waitlist"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-    >
-      <input type="hidden" name="form-name" value="waitlist" />
-      <p style="display:none;">
-        <label>Don't fill this out: <input name="bot-field" /></label>
-      </p>
+    <form id="waitlist-form">
       <div class="form-wrap">
         <input
           type="email"
@@ -419,6 +427,7 @@
     </form>
 
     <p class="form-note">First founders get free access. Quick unsubscribe. No spam</p>
+    <p id="form-status" aria-live="polite"></p>
   </section>
 
   <!-- FOOTER -->
@@ -427,8 +436,7 @@
     <div class="footer-inner">
       <nav class="footer-links">
         <a href="#">Know More</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+        <a href="/llms.txt">llms.txt</a>
       </nav>
       <a class="footer-brand" href="#" target="_blank" rel="noopener">
         <span>Tenztro</span>
@@ -439,5 +447,66 @@
     </div>
   </footer>
 
+  <script src="config.js"></script>
+  <script>
+    (function () {
+      var cfg = window.PEEK_CONFIG || {};
+      var SUPABASE_URL = cfg.supabaseUrl;
+      var ANON_KEY     = cfg.supabaseAnonKey;
+
+      var form   = document.getElementById('waitlist-form');
+      var status = document.getElementById('form-status');
+      var btn    = form.querySelector('button[type="submit"]');
+
+      function setStatus(msg, cls) {
+        status.textContent = msg;
+        status.className = cls;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (!SUPABASE_URL || !ANON_KEY) {
+          setStatus('Configuration missing. Add config.js to run locally.', 'error');
+          return;
+        }
+        var email = form.querySelector('input[type="email"]').value.trim();
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        setStatus('', '');
+
+        fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+          method: 'POST',
+          headers: {
+            'apikey': ANON_KEY,
+            'Authorization': 'Bearer ' + ANON_KEY,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({ email: email })
+        })
+        .then(function (res) {
+          if (res.status === 201) {
+            setStatus("You're on the list. We'll be in touch.", 'success');
+            form.reset();
+            return;
+          }
+          return res.json().then(function (body) {
+            if (res.status === 409 || (body && body.code === '23505')) {
+              setStatus("You're already on the waitlist.", 'success');
+            } else {
+              setStatus('Something went wrong. Please try again.', 'error');
+            }
+          });
+        })
+        .catch(function () {
+          setStatus('Network error. Please check your connection.', 'error');
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = 'Get early access';
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
