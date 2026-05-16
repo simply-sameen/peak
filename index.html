@@ -439,7 +439,7 @@
         </div>
       </form>
 
-      <p class="form-note">Free for founding members. No spam. Unsubscribe any time.</p>
+      <p id="waitlist-count" class="form-note" style="display:none"></p>
       <p id="form-status" aria-live="polite"></p>
     </section>
 
@@ -479,6 +479,23 @@
     (function () {
       var SUPABASE_URL = 'https://hhnsprekexcyqhravbxo.supabase.co';
       var ANON_KEY     = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhobnNwcmVrZXhjeXFocmF2YnhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg4NjcxNjcsImV4cCI6MjA5NDQ0MzE2N30.eFZ7elDQVYDN_xOHIrPGzZvFGqy286wmg0Wh9vf2uUo';
+
+      var countEl = document.getElementById('waitlist-count');
+
+      fetch(SUPABASE_URL + '/rest/v1/waitlist?select=id', {
+        headers: {
+          'apikey': ANON_KEY,
+          'Authorization': 'Bearer ' + ANON_KEY,
+          'Prefer': 'count=exact'
+        }
+      }).then(function (res) {
+        var range = res.headers.get('content-range');
+        if (!range) return;
+        var total = parseInt(range.split('/')[1], 10);
+        if (!total || total <= 0) return;
+        countEl.textContent = 'Join ' + total + '+ founders on the waitlist';
+        countEl.style.display = '';
+      }).catch(function () {});
 
       var form   = document.getElementById('waitlist-form');
       var status = document.getElementById('form-status');
