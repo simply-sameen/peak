@@ -1,0 +1,197 @@
+Fend — Know More
+The fuel gauge for every AI you use.
+https://tryfend.netlify.app
+Last updated: May 2026
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+WHAT IS FEND?
+━━━━━━━━━━━━━
+
+Fend is a browser extension that tracks your real-time usage limits across ChatGPT, Claude, Gemini, and Grok simultaneously. It shows how much headroom you have left on each platform, predicts the token count of your prompt before you send it, and routes you to the best available AI when your current one is running low.
+
+It works on any operating system. It requires no API keys, no account linking, and no setup beyond a 60-second install. Your prompt content never leaves your browser.
+
+The product exists for one reason: 180 million people now pay for AI subscriptions, and none of those subscriptions tell you clearly where you stand until you're already cut off. Fend fixes that.
+
+
+THE PROBLEM FEND SOLVES
+━━━━━━━━━━━━━━━━━━━━━━━
+
+Every AI subscription has limits. ChatGPT Plus, ChatGPT Pro, Claude Pro, Claude Max, Gemini Advanced, Grok Premium — every tier has rolling message windows, session caps, daily quotas, and rate limits that vary by platform, by tier, and sometimes by time of day.
+
+None of these platforms tell you clearly where you are.
+
+ChatGPT shows nothing until you are cut off. Claude shows a vague, undocumented progress bar with no numbers. Gemini gives sporadic warnings. Grok has counters buried in the interface. The result is the same on every platform: you find out you have hit the wall by hitting it.
+
+Mid-document. Mid-brief. Mid-thought. The conversation ends. The context is gone. You restart somewhere else — if you can remember where you were.
+
+This is not a niche problem affecting a few edge-case users. It is the defining friction of how power users work with AI in 2026. Founders, developers, content creators, marketers, researchers — anyone paying $20 to $200 per month for AI access and using it seriously hits this problem every week. Many hit it every day.
+
+The workaround today is manual. Users keep multiple tabs open. They switch between platforms compulsively. They guess at headroom. They watch for error messages like a warning sign on an empty road. Some keep spreadsheets. None of this is a solution. It is all damage control.
+
+Fend automates what users are already doing manually. That is the product.
+
+
+WHO FEND IS FOR
+━━━━━━━━━━━━━━━
+
+Founders and indie builders.
+You use Claude for long-form strategy, ChatGPT for research, Gemini when one runs dry. You are paying $100 to $400 per month across subscriptions and still losing momentum to limits you cannot predict. Fend is the switching layer that keeps you in flow when the platform cannot.
+
+AI-native developers.
+You are running Claude Code for agentic tasks, Cursor for code completion, and Gemini in your IDE. Each has a different rolling window. You have lost a long agentic session to a limit hit before and had to restart from a stale context. Fend tells you whether your next task fits before you commit.
+
+Content creators and marketers.
+You produce at volume — copy, audio, video — across ChatGPT, ElevenLabs, Suno, and others. Each platform uses different credit systems and different reset schedules. Fend normalises all of it into one view.
+
+Corporate teams and team leads.
+Your team collectively spends thousands per month on AI subscriptions with zero visibility into aggregate usage. Nobody knows who is hitting what, or whether the spend is justified. Fend's Teams dashboard turns that opacity into accountability.
+
+Power users who simply want to stop being surprised.
+You do not need a complex dashboard. You need to know — right now, at a glance — how much of your Claude session is left and whether your next prompt will fit. That is the free tier. That is enough.
+
+
+HOW FEND WORKS
+━━━━━━━━━━━━━━
+
+Step 1 — Install in 60 seconds.
+Fend is a browser extension for Chrome and Firefox. It installs in one click from the extension store. It connects to your existing ChatGPT, Claude, Gemini, and Grok sessions automatically — no logins, no API keys, no configuration required beyond the install itself.
+
+Step 2 — Fend reads your limit data locally.
+Rate limit metadata exists in HTTP response headers on every request your browser makes to an AI platform. Fields like X-RateLimit-Remaining and Retry-After are part of the standard response envelope. Fend reads these headers from within your existing browser session. Where headers are not available, Fend reads usage indicators from the page DOM. Nothing is intercepted, modified, or rerouted.
+
+Step 3 — Token prediction runs in your browser.
+Fend estimates the token count of your current prompt in real time, before you send it. This runs using WASM-compiled tokenizer models inside your browser: tiktoken for GPT-4 and GPT-4o, BPE approximation for Claude, and a character-based heuristic for Gemini. No text you type is transmitted to Fend's servers at any point.
+
+Step 4 — Know before you send. Route with one click.
+Fend displays your remaining headroom across every connected platform. It recommends the best available AI for your current task. One click moves your prompt to that platform — no copy-pasting, no tab management, no context loss.
+
+
+WHAT FEND SHOWS YOU
+━━━━━━━━━━━━━━━━━━━
+
+For every connected AI platform, Fend displays:
+- Remaining messages or session percentage as a live usage bar
+- Rolling window progress and reset countdown timer
+- Platform status: available, running low, or reset pending
+- Routing recommendation based on headroom and task type
+
+Before you send any prompt, Fend shows:
+- Estimated token count for your current input
+- Estimated cost in dollars based on the platform's pricing
+- Whether the prompt fits within your remaining session budget
+- Which platform to use instead if it does not fit
+
+Over time, Fend shows:
+- 7-day (free) or 30-day (Pro) usage history
+- Which platforms you exhaust first and when
+- Patterns in your usage that help you plan working sessions
+
+
+WHAT FEND DOES NOT DO
+━━━━━━━━━━━━━━━━━━━━━
+
+Fend does not read, store, or transmit your prompt content or conversation history.
+Fend does not require or use API keys.
+Fend does not automate prompt submission — it does not send messages on your behalf.
+Fend does not modify AI platform responses.
+Fend is not affiliated with OpenAI, Anthropic, Google, or xAI.
+Fend is not a replacement for any AI platform — it works alongside all of them.
+Fend does not give you more tokens or more messages — it helps you use what you already have, intelligently.
+
+
+IS FEND AGAINST PLATFORM TERMS OF SERVICE?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Fend reads usage data that is already present in your browser session — the same data visible in any browser's developer tools. It does not automate prompt submission, modify platform responses, or interact with any platform's API on your behalf. Reading and displaying rate limit headers is not prohibited under any current platform terms of service. This approach is comparable in method to tools like Grammarly, Dark Reader, and other browser extensions that read page data to improve user experience. Fend reviews TOS compliance for each integrated platform on an ongoing basis.
+
+
+HOW FEND COMPARES TO EXISTING TOOLS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Developer observability tools — Langfuse, Helicone, Portkey, LangWatch, Datadog LLM Observability.
+These are enterprise tools built for engineering teams who consume AI via API. They track per-request API token costs using API keys. They have no concept of a subscription plan's rolling message window. Their users are developers and data teams. They are not relevant to the consumer subscription problem Fend solves.
+
+tokn.watch.
+A free macOS menu bar application tracking Claude and ChatGPT usage only. No routing, no pre-send token prediction, no Windows support, no cross-browser support, no B2B path, no maintenance team, no business model. Tokn.watch validates that consumer demand for this category exists. It does not own the category. Fend is the complete cross-platform answer — with routing, prediction, a commercial model, and a funded team behind it.
+
+Grok Usage Watch.
+A single-platform Chrome extension for Grok only. Removed from the Chrome Web Store due to reliability failures after Grok UI updates. No longer available.
+
+TokenWatch (tokenwatch.app and tokenwatch.one).
+API cost dashboards for developers and agencies. Tracks API spend using API keys. Not relevant to subscription-tier consumer tracking.
+
+Fend.
+Cross-platform browser extension. Works on all operating systems where Chrome or Firefox runs. Tracks 4+ AI platforms simultaneously. Pre-send token prediction. One-click routing. Consumer freemium tier and B2B Teams tier. Active maintenance team. Founding waitlist open at tryfend.app.
+
+
+PRICING
+━━━━━━━
+
+Free — $0 forever.
+2 platforms. Basic limit display. Pre-send token count. 7-day usage history. No credit card required.
+
+Pro — $15 per month.
+All platforms. One-click routing. Prompt compression. 30-day analytics. Reset notifications. Cost forecasting. Founding members who join the waitlist early receive Pro pricing locked for life.
+
+Teams — $49 per seat per month.
+Aggregate team usage dashboard. Per-user attribution. Budget alerts and spend caps. Slack and email reporting. Admin seat controls. Priority support.
+
+
+PRIVACY AND DATA
+━━━━━━━━━━━━━━━━
+
+Your prompt content is never transmitted to Fend's servers. Tokenisation runs locally using WASM-compiled models inside your browser. Fend collects only anonymous, aggregated usage metadata — which platform was active, approximate token ranges, session timing — with your explicit consent. This data is used to power your usage history and to improve Fend's routing recommendations over time in anonymised aggregate form. Personal information is limited to your email address for account management. Fend does not sell user data to third parties.
+
+
+FREQUENTLY ASKED QUESTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Q: Does Fend work on Windows?
+A: Yes. Fend is a browser extension — it runs on any operating system where Chrome or Firefox runs. Windows, macOS, and Linux are all supported.
+
+Q: Does Fend read my prompts?
+A: No. Token counting runs locally inside your browser. The text you type is never sent to Fend's servers. Only anonymous usage metadata is collected with your consent.
+
+Q: Which AI platforms does Fend support at launch?
+A: ChatGPT (Plus and Pro), Claude (Pro and Max), Gemini Advanced, and Grok Premium. Perplexity Pro, ElevenLabs, Suno, and Cursor are on the roadmap.
+
+Q: What happens when a platform updates its interface and breaks Fend's tracker?
+A: Each platform integration is monitored continuously. Fend displays a last-verified timestamp for each platform so users always know how current the data is. When an update breaks a tracker, the engineering team patches it typically within 24 hours. Users can report broken trackers in-app for immediate review.
+
+Q: Is Fend affiliated with OpenAI, Anthropic, Google, or xAI?
+A: No. Fend is an independent product built by Tenztro Private Limited. It is not affiliated with, endorsed by, or connected to any AI platform it tracks.
+
+Q: How is Fend different from ChatGPT's own usage display?
+A: ChatGPT shows limited information about your own plan only. It will never show you how much headroom you have on Claude, Gemini, or Grok. It has no reason to route you away from itself. Fend is structurally neutral — it is the only entity that can give you a complete cross-platform view and recommend the best AI for each task regardless of which platform that favours.
+
+Q: When does Fend launch?
+A: Fend is currently in pre-launch with a founding waitlist open at tryfend.app. Founding members who join the waitlist receive Pro pricing locked for life. The first 500 on the waitlist are guaranteed founding access.
+
+Q: Can Fend be used by teams?
+A: Yes. The Teams tier ($49 per seat per month) gives team leads an aggregate dashboard showing usage across all team members, per-user attribution, budget alerts, and admin controls. This is designed for teams of 5 to 50 people managing multiple AI subscriptions with no current visibility into aggregate spend.
+
+
+THE FOUNDING TEAM
+━━━━━━━━━━━━━━━━━
+
+Sameen Sardar S — CEO and Co-founder.
+Product, brand, and distribution. Co-founder of Tenztro Private Limited. Led brand identity, product marketing, and growth for TradeFXBook, a UAE fintech platform with 1,150+ paying customers and $292,000 in annual recurring revenue. National design leadership role at IEEE Computer Society India. Produced HACKETHIX, the largest single-day cybersecurity event for students in Kerala: 300 students, 27 colleges, 15-person organising team. Daily multi-platform AI power user across Claude, ChatGPT, Gemini, and Grok. Built Fend out of personal daily frustration.
+
+Anandu B Kurup — CTO and Co-founder.
+Engineering and infrastructure. Built TradeFXBook's complete webapp end-to-end: Next.js, React, TypeScript, Convex, Clerk. 1,150+ paying customers in production. Co-built BillOPZ, a commercially deployed AI GST compliance suite with a triple-layer OCR pipeline (PaddleOCR via ONNX, Tesseract.js via WASM, rule-based layout parser) and multi-agent architecture. Built CampusFlo, a full institute management system in active pre-beta deployment. Builds and ships production-grade systems without external engineering hires.
+
+Combined, the founding team has shipped three commercial products as students: one generating $292K ARR with a paid external client, one commercially deployed with multiple pricing tiers, and one running live in an active institutional deployment.
+
+
+CONTACT AND LINKS
+━━━━━━━━━━━━━━━━━
+
+Website: https://tryfend.netlify.app
+Waitlist: https://tryfend.netflify.app
+X (Twitter): https://x.com/try_fend
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026 Fend
