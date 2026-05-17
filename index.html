@@ -104,7 +104,8 @@
       margin-top: 200px;
       margin-left: auto;
       margin-right: auto;
-      width: 500px;
+      width: 80%;
+      max-width: 500px;
       display: flex;
       flex-direction: column;
       gap: 34px;
@@ -319,7 +320,7 @@
       }
 
       .body-col {
-        width: 400px;
+        width: 80%;
       }
 
       .lead {
@@ -349,7 +350,7 @@
       }
 
       .body-col {
-        width: 375px;
+        width: 80%;
       }
 
       .lead {
@@ -379,14 +380,14 @@
 
     <!-- NAV -->
     <nav>
-      <a class="logo" href="#">
-        <svg class="logo-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <p class="logo" href="#" style="font-size: 28px;">
+        <svg class="logo-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M15.6 2.7a10 10 0 1 0 5.7 5.7"/>
           <circle cx="12" cy="12" r="2"/>
           <path d="M13.4 10.6 19 5"/>
         </svg>
         fend
-      </a>
+      </p>
     </nav>
 
     <!-- HERO + BODY TEXT -->
@@ -414,10 +415,11 @@
     <section class="waitlist-section">
       <div class="badge" role="note">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-          <polyline points="22 4 12 14.01 9 11.01"/>
+          <path d="M15.6 2.7a10 10 0 1 0 5.7 5.7"/>
+          <circle cx="12" cy="12" r="2"/>
+          <path d="M13.4 10.6 19 5"/>
         </svg>
-        Join the many founders and students on the waitlist
+        First 300 get in free. No credit card, No spam.
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
           <polyline points="22 4 12 14.01 9 11.01"/>
@@ -493,7 +495,7 @@
         if (!range) return;
         var total = parseInt(range.split('/')[1], 10);
         if (!total || total <= 0) return;
-        countEl.textContent = 'Join ' + total + '+ founders on the waitlist. Unsubscribe anytime. No spam.';
+        countEl.textContent = 'Join ' + total + '+ founders on the waitlist.';
         countEl.style.display = '';
       }).catch(function () {});
 
